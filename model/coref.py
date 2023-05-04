@@ -24,4 +24,6 @@ doc = nlp(content[0])
 # print(doc._.coref_clusters)
 # print(doc)
 
-print(doc._.resolved_text)
+resolved_content = doc._.resolved_text
+with open("sample.txt", "w") as f:
+    f.write(resolved_content)
