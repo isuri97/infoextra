@@ -21,5 +21,7 @@ nlp.add_pipe(
 )
 
 doc = nlp(content[0])
-print(doc._.coref_clusters)
-print(doc)
+# print(doc._.coref_clusters)
+# print(doc)
+
+print(doc._.resolved_text)
