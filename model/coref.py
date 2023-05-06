@@ -5,7 +5,7 @@ import spacy
 
 import crosslingual_coreference
 
-df = pd.read_csv('data/test.csv',',')
+df = pd.read_csv('data/new_wiener.csv',sep=',')
 content = df['content']
 print(content[0])
 
@@ -18,25 +18,28 @@ print(content[0])
 #
 nlp = spacy.load("en_core_web_sm")
 nlp.add_pipe(
-    "xx_coref", config={"chunk_size": 50, "chunk_overlap": 2, "device": -1}
+    "xx_coref", config={"chunk_overlap": 2, "device": -1}
 )
 
 
-# result = []
-# for i in content:
-#     doc = nlp(i)
-#     resolved_content = doc._.resolved_text
-#     result.append(resolved_content)
-#
-# df['resolved_coref'] = result
+result = []
+for i in content:
+    doc = nlp(i)
+    resolved_content = doc._.resolved_text
+    result.append(resolved_content)
+
+df['resolved_coref'] = result
+
+
+df.to_csv('coref.csv', sep='\t')
 
 # for i in np.arange(0,2):
-doc = nlp(content[0])
-resolved_content = doc._.resolved_text
-# with open("sample.txt", "w") as f:
-#     f.write(resolved_content)
-
-print(resolved_content)
+# doc = nlp(content[0])
+# resolved_content = doc._.resolved_text
+# # with open("sample.txt", "w") as f:
+# #     f.write(resolved_content)
+#
+# print(resolved_content)
 
 
 
