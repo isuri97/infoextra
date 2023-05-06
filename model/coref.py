@@ -20,19 +20,34 @@ nlp.add_pipe(
     "xx_coref", config={"chunk_size": 50, "chunk_overlap": 2, "device": -1}
 )
 
-result = []
-for i in content:
-    doc = nlp(i)
-    resolved_content = doc._.resolved_text
-    result.append(resolved_content)
 
-df['resolved_coref'] = result
+# result = []
+# for i in content:
+#     doc = nlp(i)
+#     resolved_content = doc._.resolved_text
+#     result.append(resolved_content)
+#
+# df['resolved_coref'] = result
 
-# print(doc._.coref_clusters)
-# print(doc)
-
+# doc = nlp(i)
+# resolved_content = doc._.resolved_text
 # resolved_content = doc._.resolved_text
 # with open("sample.txt", "w") as f:
 #     f.write(resolved_content)
 
-df.to_csv('coref.csv',sep='\t')
+
+result = []
+
+for i, row in df.iterrows():
+    try:
+        doc = nlp(row['content'])
+        resolved_content = doc._.resolved_text
+        result.append(resolved_content)
+
+        print(f"Finished document {row['id']}: {e}")
+    except Exception as e:
+        print(f"Error processing document {row['id']}: {e}")
+        continue
+
+df['resolved_coref'] = result
+df.to_csv('coref.csv', sep='\t')
