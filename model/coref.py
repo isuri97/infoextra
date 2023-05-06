@@ -34,7 +34,7 @@ nlp.add_pipe(
 # df.to_csv('coref.csv', sep='\t')
 
 # for i in np.arange(0,2):
-doc = nlp(content[1])
+doc = nlp(content[2])
 resolved_content = doc._.resolved_text
 # with open("sample.txt", "w") as f:
 #     f.write(resolved_content)
