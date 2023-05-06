@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 import spacy
 
@@ -29,13 +30,13 @@ nlp.add_pipe(
 #
 # df['resolved_coref'] = result
 
+for i in np.arange(0,2):
+    doc = nlp(content[i])
+    resolved_content = doc._.resolved_text
+    # with open("sample.txt", "w") as f:
+    #     f.write(resolved_content)
 
-doc = nlp(content[0])
-resolved_content = doc._.resolved_text
-# with open("sample.txt", "w") as f:
-#     f.write(resolved_content)
-
-print(resolved_content)
+    print(resolved_content)
 
 
 
