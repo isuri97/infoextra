@@ -46,6 +46,7 @@ for i, row in df.iterrows():
         print(f"Finished document {row['doc_id']}")
     except Exception as e:
         result.append(None)
+        continue
 
 df['resolved_coref'] = result
 df.to_csv('coref.csv', sep='\t')
