@@ -44,9 +44,9 @@ for i, row in df.iterrows():
         resolved_content = doc._.resolved_text
         result.append(resolved_content)
 
-        print(f"Finished document {row['id']}: {e}")
+        print(f"Finished document {row['doc_id']}: {e}")
     except Exception as e:
-        print(f"Error processing document {row['id']}: {e}")
+        print(f"Error processing document {row['doc_id']}: {e}")
         continue
 
 df['resolved_coref'] = result
