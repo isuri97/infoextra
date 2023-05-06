@@ -6,6 +6,7 @@ import spacy
 import crosslingual_coreference
 
 df = pd.read_csv('data/new_wiener.csv',sep=',')
+df = df.dropna(subset=['content'])
 content = df['content']
 # print(content[0])
 
