@@ -60,6 +60,7 @@ for i, row in df.iterrows():
 
     except Exception as e:
         print(f"Error processing document {row['doc_id']}: {e}")
+        result.append(None)
         continue
 
 df['resolved_coref'] = result
