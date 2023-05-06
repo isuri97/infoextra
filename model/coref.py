@@ -32,15 +32,18 @@ nlp.add_pipe(
 #
 #
 # df.to_csv('coref.csv', sep='\t')
+result = []
 
-for i in np.arange(0,2):
+for i in np.arange(0,496):
     doc = nlp(content[i])
     resolved_content = doc._.resolved_text
     # with open("sample.txt", "w") as f:
     #     f.write(resolved_content)
+    result.append(resolved_content)
+    # print(resolved_content)
 
-    print(resolved_content)
-
+df['resolved_coref'] = result
+df.to_csv('coref.csv', sep='\t')
 
 
 
