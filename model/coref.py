@@ -34,13 +34,18 @@ nlp.add_pipe(
 # df.to_csv('coref.csv', sep='\t')
 result = []
 
-for i in np.arange(0,496):
-    doc = nlp(content[i])
-    resolved_content = doc._.resolved_text
-    # with open("sample.txt", "w") as f:
-    #     f.write(resolved_content)
-    result.append(resolved_content)
-    # print(resolved_content)
+for i, row in df.iterrows():
+# for i in np.arange(0,496):
+    doc = nlp(row['content'])
+    try:
+        resolved_content = doc._.resolved_text
+        # with open("sample.txt", "w") as f:
+        #     f.write(resolved_content)
+        result.append(resolved_content)
+        # print(resolved_content)
+        print(f"Finished document {row['doc_id']}")
+    except Exception as e:
+        result.append(None)
 
 df['resolved_coref'] = result
 df.to_csv('coref.csv', sep='\t')
