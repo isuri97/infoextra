@@ -7,7 +7,7 @@ import crosslingual_coreference
 
 df = pd.read_csv('data/test.csv',',')
 content = df['content']
-print(content[1])
+print(content[0])
 
 # text = (
 #     "Do not forget about Momofuku Ando! He created instant noodles in Osaka. At"
