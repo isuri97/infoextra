@@ -20,10 +20,19 @@ nlp.add_pipe(
     "xx_coref", config={"chunk_size": 2500, "chunk_overlap": 2, "device": -1}
 )
 
-doc = nlp(content[0])
+result = []
+for i in content:
+    doc = nlp(i)
+    resolved_content = doc._.resolved_text
+    result.append(resolved_content)
+
+df['resolved_coref'] = result
+
 # print(doc._.coref_clusters)
 # print(doc)
 
-resolved_content = doc._.resolved_text
-with open("sample.txt", "w") as f:
-    f.write(resolved_content)
+# resolved_content = doc._.resolved_text
+# with open("sample.txt", "w") as f:
+#     f.write(resolved_content)
+
+df.to_csv('coref.csv',sep='\t')
