@@ -7,7 +7,7 @@ import crosslingual_coreference
 
 df = pd.read_csv('data/new_wiener.csv',sep=',')
 content = df['content']
-print(content[0])
+# print(content[0])
 
 # text = (
 #     "Do not forget about Momofuku Ando! He created instant noodles in Osaka. At"
@@ -22,16 +22,16 @@ nlp.add_pipe(
 )
 
 
-result = []
-for i in content:
-    doc = nlp(i)
-    resolved_content = doc._.resolved_text
-    result.append(resolved_content)
-
-df['resolved_coref'] = result
-
-
-df.to_csv('coref.csv', sep='\t')
+# result = []
+# for i in content:
+#     doc = nlp(i)
+#     resolved_content = doc._.resolved_text
+#     result.append(resolved_content)
+#
+# df['resolved_coref'] = result
+#
+#
+# df.to_csv('coref.csv', sep='\t')
 
 # for i in np.arange(0,2):
 # doc = nlp(content[0])
@@ -48,19 +48,19 @@ df.to_csv('coref.csv', sep='\t')
 
 
 
-#
-# result = []
-#
-# for i, row in df.iterrows():
-#     try:
-#         doc = nlp(row['content'])
-#         resolved_content = doc._.resolved_text
-#         result.append(resolved_content)
-#
-#         print(f"Finished document {row['doc_id']}: {e}")
-#     except Exception as e:
-#         print(f"Error processing document {row['doc_id']}: {e}")
-#         continue
-#
-# df['resolved_coref'] = result
-# df.to_csv('coref.csv', sep='\t')
+
+result = []
+
+for i, row in df.iterrows():
+    try:
+        doc = nlp(row['content'])
+        resolved_content = doc._.resolved_text
+        result.append(resolved_content)
+        print(f"Finished document {row['doc_id']}: {e}")
+
+    except Exception as e:
+        print(f"Error processing document {row['doc_id']}: {e}")
+        continue
+
+df['resolved_coref'] = result
+df.to_csv('coref.csv', sep='\t')
