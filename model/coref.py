@@ -17,7 +17,7 @@ print(content)
 #
 nlp = spacy.load("en_core_web_sm")
 nlp.add_pipe(
-    "xx_coref", config={"chunk_size": 500, "chunk_overlap": 2, "device": -1}
+    "xx_coref", config={"chunk_size": 50, "chunk_overlap": 2, "device": -1}
 )
 
 result = []
