@@ -7,7 +7,7 @@ import crosslingual_coreference
 
 df = pd.read_csv('data/new_wiener.csv',sep=',')
 df = df.dropna(subset=['content'])
-df = df[~df['content'].isin([])]
+df = df[~df['content'].isin([''])]
 content = df['content']
 # print(content[0])
 
