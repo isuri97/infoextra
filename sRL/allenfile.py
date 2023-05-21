@@ -21,7 +21,7 @@ for index, row in df.iterrows():
     try:
         sentences = nltk.sent_tokenize(index)
         # print(sentences)
-        filename = f"sRL/sentence_files/{index}.txt"
+        filename = f"sRL/sentence_files/{row_count}.txt"
         with open(filename, 'w') as f:
             for sentence in sentences:
                 parts = re.split(r"\s+and\s+", sentence)
