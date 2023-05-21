@@ -62,7 +62,7 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
         except IndexError:
             pass
 
-        fn = f"arg-file/{count}.txt"
+        fn = f"sRL/arg-file/{count}.txt"
         with open(fn, 'w') as f:
             for i in sentences_list:
                 for j in i:
