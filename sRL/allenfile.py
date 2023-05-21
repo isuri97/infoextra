@@ -17,7 +17,7 @@ for index, row in df.iterrows():
   try:
     sentences = nltk.sent_tokenize(paragraph)
     print(sentences)
-    filename = f"sRL/sentence_files/{index}.txt"
+    filename = f"sRL/sentence_files/{count}.txt"
     with open(filename, 'w') as f:
       for sentence in sentences:
           parts = re.split(r"\s+and\s+", sentence)
@@ -26,6 +26,7 @@ for index, row in df.iterrows():
               f.write(i + '\n')
           else:
             f.write(sentence + '\n')
+    count = count + 1
   except TypeError:
     pass
 
