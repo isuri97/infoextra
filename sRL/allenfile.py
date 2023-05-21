@@ -18,7 +18,7 @@ dff = pd.read_csv('data/new_wiener.csv')
 # for index, paragraph in zip(df['id'].to_list(),df['coref'].to_list()):
     # paragraph = row['coref']
 row_count = 0
-for paragraph in dff['content']:
+for paragraph in dff['content'].to_list():
     # paragraph = row['coref']
     print(f'index {row_count}| paragraph : {paragraph}')
     try:
