@@ -12,8 +12,10 @@ df['coref'] = df['coref'].str.replace(r'\[|\]', '')
 df['coref']
 count = 0
 
-for index, paragraph in zip(df['id'].to_list(),df['coref'].to_list()):
+# for index, paragraph in zip(df['id'].to_list(),df['coref'].to_list()):
     # paragraph = row['coref']
+for index, row in df.iterrows():
+    paragraph = row['coref']
     print(f'index {index}| paragraph : {paragraph}')
     try:
         sentences = nltk.sent_tokenize(paragraph)
