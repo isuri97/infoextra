@@ -61,9 +61,9 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
         except IndexError:
             pass
 
-        fn = f"sRL/arg-file/{count}.txt"
+        fn = f"sRL/files_dir/{count}.txt"
         with open(fn, 'w') as ff:
-            print(f'sentence list = {sentences_list}')
+            # print(f'sentence list = {sentences_list}')
             ff.writelines(sentences_list)
             print('sentences written')
 
