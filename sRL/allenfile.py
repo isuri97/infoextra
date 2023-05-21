@@ -12,14 +12,17 @@ df['coref'] = df['coref'].str.replace(r'\[|\]', '')
 df['coref']
 count = 0
 
+
+dff = pd.read_csv('data/new_wiener.csv')
+
 # for index, paragraph in zip(df['id'].to_list(),df['coref'].to_list()):
     # paragraph = row['coref']
 row_count = 0
-for index, row in df.iterrows():
-    paragraph = row['coref']
-    print(f'index {index}| paragraph : {paragraph}')
+for paragraph in dff['content']:
+    # paragraph = row['coref']
+    print(f'index {row_count}| paragraph : {paragraph}')
     try:
-        sentences = nltk.sent_tokenize(index)
+        sentences = nltk.sent_tokenize(paragraph)
         # print(sentences)
         filename = f"sRL/sentence_files/{row_count}.txt"
         with open(filename, 'w') as f:
