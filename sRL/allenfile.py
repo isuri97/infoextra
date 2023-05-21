@@ -64,7 +64,7 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
         except IndexError:
             pass
 
-        fn = "sRL/files_dir/" + count + ".txt"
+        fn = "sRL/files_dir/" + str(count) + ".txt"
 
         with open(fn, 'w') as ff:
             # print(f'sentence list = {sentences_list}')
