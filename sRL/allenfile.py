@@ -67,7 +67,7 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
         fn = "sRL/arg-file/" + str(count) + ".txt"
 
         with open(fn, 'w') as ff:
-            # print(f'sentence list = {sentences_list}')
+            print(f'sentence list = {sentences_list}')
             # ff.writelines(sentences_list)
             for s in sentences_list :
                 for ss in s:
