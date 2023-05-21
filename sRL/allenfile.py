@@ -17,7 +17,7 @@ for index, row in df.iterrows():
   try:
     sentences = nltk.sent_tokenize(paragraph)
     print(sentences)
-    filename = f"sRL/sentence_files/{count}.txt"
+    filename = f"sRL/sentence_files/{index}.txt"
     with open(filename, 'w') as f:
       for sentence in sentences:
           parts = re.split(r"\s+and\s+", sentence)
@@ -39,6 +39,7 @@ folder = Path('sRL/sentence_files')
 files = folder.glob('**/*.txt') # assuming the files are csv
 
 
+count = 0
 
 for filename in glob.glob(os.path.join(folder, '*.txt')):
     print(filename)
