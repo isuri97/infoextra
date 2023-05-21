@@ -49,7 +49,7 @@ files = folder.glob('**/*.txt')  # assuming the files are csv
 # dir = 'sRL/sentence_files/'
 # file_lst = os.listdir(dir)
 
-
+count = 0
 for filename in glob.glob(os.path.join(folder, '*.txt')):
     print(filename)
     with open(filename, 'r') as f:
