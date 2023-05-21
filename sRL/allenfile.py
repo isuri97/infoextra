@@ -3,7 +3,7 @@ import nltk
 import pandas as pd
 from allennlp.predictors.predictor import Predictor
 
-df = pd.read_csv('data/new_wiener.csv')
+df = pd.read_csv('data/wiener-100.csv')
 df['coref'] = df['coref'].str.replace(r'\[|\]', '')
 df['coref']
 
