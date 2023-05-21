@@ -3,6 +3,10 @@ import nltk
 import pandas as pd
 from allennlp.predictors.predictor import Predictor
 
+download = "https://storage.googleapis.com/allennlp-public-models/structured-prediction-srl-bert.2020.12.15.tar.gz"
+# predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/bert-base-srl-2020.11.19.tar.gz")
+predictor = Predictor.from_path(download)
+
 df = pd.read_csv('data/wiener-100.csv')
 df['coref'] = df['coref'].str.replace(r'\[|\]', '')
 df['coref']
