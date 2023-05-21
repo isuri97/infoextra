@@ -16,7 +16,7 @@ for index, row in df.iterrows():
     paragraph = row['coref']
     try:
         sentences = nltk.sent_tokenize(paragraph)
-        print(sentences)
+        # print(sentences)
         filename = f"sRL/sentence_files/{index}.txt"
         with open(filename, 'w') as f:
             for sentence in sentences:
@@ -37,6 +37,10 @@ folder = Path('sRL/sentence_files')
 
 # get all the files in the folder
 files = folder.glob('**/*.txt')  # assuming the files are csv
+
+# dir = 'sRL/sentence_files/'
+# file_lst = os.listdir(dir)
+
 
 for filename in glob.glob(os.path.join(folder, '*.txt')):
     print(filename)
