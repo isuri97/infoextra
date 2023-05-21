@@ -40,8 +40,6 @@ folder = Path('sRL/sentence_files')
 files = folder.glob('**/*.txt') # assuming the files are csv
 
 
-count = 0
-
 for filename in glob.glob(os.path.join(folder, '*.txt')):
     print(filename)
     with open(filename, 'r') as f:
