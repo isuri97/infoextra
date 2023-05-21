@@ -14,11 +14,12 @@ count = 0
 
 # for index, paragraph in zip(df['id'].to_list(),df['coref'].to_list()):
     # paragraph = row['coref']
+row_count = 0
 for index, row in df.iterrows():
     paragraph = row['coref']
     print(f'index {index}| paragraph : {paragraph}')
     try:
-        sentences = nltk.sent_tokenize(paragraph)
+        sentences = nltk.sent_tokenize(index)
         # print(sentences)
         filename = f"sRL/sentence_files/{index}.txt"
         with open(filename, 'w') as f:
@@ -30,6 +31,7 @@ for index, row in df.iterrows():
                 else:
                     f.write(sentence + '\n')
         count = count + 1
+        row_count+=1
     except TypeError:
         pass
 
