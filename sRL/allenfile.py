@@ -69,8 +69,9 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
         with open(fn, 'w') as ff:
             # print(f'sentence list = {sentences_list}')
             # ff.writelines(sentences_list)
-            for s in sentences_list:
-                ff.write(s)
+            for s in sentences_list :
+                for ss in s:
+                    ff.write(ss)
             print('sentences written')
 
         count = count + 1
