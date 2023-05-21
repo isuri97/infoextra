@@ -17,7 +17,7 @@ for index, row in df.iterrows():
   try:
     sentences = nltk.sent_tokenize(paragraph)
     print(sentences)
-    filename = f"sRL/sentence_files/{count}.txt"
+    filename = f"sRL/sentence_files/{index}.txt"
     with open(filename, 'w') as f:
       for sentence in sentences:
           parts = re.split(r"\s+and\s+", sentence)
@@ -63,6 +63,7 @@ for filename in glob.glob(os.path.join(folder, '*.txt')):
 
         fn = f"sRL/arg-file/{count}.txt"
         with open(fn, 'w') as f:
+            print(f'sentence list = {sentences_list}')
             for i in sentences_list:
                 for j in i:
                     f.write(j)
