@@ -6,13 +6,14 @@ from allennlp.predictors.predictor import Predictor
 df = pd.read_csv('data/wiener-100.csv')
 df['coref'] = df['coref'].str.replace(r'\[|\]', '')
 df['coref']
+count = 0
 
 for index, row in df.iterrows():
   paragraph = row['coref']
   try:
     sentences = nltk.sent_tokenize(paragraph)
     print(sentences)
-    filename = f"sentence_files/{index}.txt"
+    filename = f"sRL/sentence_files/{count}.txt"
     with open(filename, 'w') as f:
       for sentence in sentences:
           parts = re.split(r"\s+and\s+", sentence)
@@ -33,7 +34,7 @@ folder = Path('sRL/sentence_files')
 # get all the files in the folder
 files = folder.glob('**/*.txt') # assuming the files are csv
 
-count = 0
+
 
 for filename in glob.glob(os.path.join(folder, '*.txt')):
     print(filename)
